@@ -27,7 +27,7 @@ class BASISR55:
         self.pins_height = pins_height
 
         self.cell = self.pins_per_line # the cell's size to draw the labels
-        self.diffH = 3 # the distance between level i and i+1
+        self.diffH = 4# the distance between level i and i+1
 
         self.base = None
         self.pins = None
