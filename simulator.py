@@ -201,6 +201,7 @@ class BASISR55:
                 nparray = np.asarray(self.pins[y][x].vertices)
                 nparray[:, 1] = self.init_y
                 self.pins[y][x].vertices = o3d.utility.Vector3dVector(nparray)
+                self.pins[y][x].paint_uniform_color(BASISR55.colors_dict[0])
 
     def update_pin(self, x, y, h):
         """
