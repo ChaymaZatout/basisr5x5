@@ -81,6 +81,11 @@ class BASISR55:
                 cylinder.paint_uniform_color(BASISR55.colors_dict[0])
                 self.pins[j][i] = cylinder
 
+    def unknown_obstacle(self, height):
+        for i in range(self.pins_per_line):
+            for j in range(self.pins_per_line):
+                self.update_pin(i, j, height)
+
     def chair(self, height):
         """
         Update pins to draw the label
