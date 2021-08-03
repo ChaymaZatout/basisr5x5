@@ -10,6 +10,10 @@ import numpy as np
 from math import cos, sin, pi
 
 class BASISR55:
+    colors_dict = {0: [0.85, 0.85, 0.85],
+                   1: [0, 1, 0],
+                   2: [1, 1, 0],
+                   3: [1, 0, 0]}
 
     def __init__(self, size=1.5, pins_per_line=5, pins_R=0.25, base_height=0.5, pins_height=0.01):
         """
@@ -74,7 +78,7 @@ class BASISR55:
                     np.asarray([[1, 0, 0], [0, cos(pi / 2), -sin(pi / 2)], [0, sin(pi / 2), cos(pi / 2)]],
                                dtype=float))
                 cylinder.compute_vertex_normals()
-                cylinder.paint_uniform_color([0.9, 0.0, 0.0])
+                cylinder.paint_uniform_color(BASISR55.colors_dict[0])
                 self.pins[j][i] = cylinder
 
     def chair(self, height):
@@ -208,3 +212,4 @@ class BASISR55:
         nparray = np.asarray(self.pins[y][x].vertices)
         nparray[:, 1] = self.init_y * h * self.diffH + self.pins_height
         self.pins[y][x].vertices = o3d.utility.Vector3dVector(nparray)
+        self.pins[y][x].paint_uniform_color(BASISR55.colors_dict[h])
