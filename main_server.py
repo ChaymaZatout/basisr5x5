@@ -45,19 +45,29 @@ if __name__ == '__main__':
             print(shape_code, ' ', shape_height)
             basisr.init_pins()
             if shape_code == 0:
+                basisr.init_pins()
+            elif shape_code == 1:
+                basisr.unknown_obstacle(shape_height)
+            elif shape_code == 2:
                 basisr.chair(shape_height)
-            if shape_code == 1:
+            elif shape_code == 3:
                 basisr.table(shape_height)
-            if shape_code == 2:
+            elif shape_code == 4:
                 basisr.dresser(shape_height)
-            if shape_code == 3:
-                basisr.door(shape_height)
-            if shape_code == 4:
+            elif shape_code == 5:
+                basisr.bathtubs(shape_height)
+            elif shape_code == 6:
                 basisr.window(shape_height)
+            elif shape_code == 7:
+                basisr.door(shape_height)
+            elif shape_code == 8:
+                basisr.upstairs(shape_height)
+            elif shape_code == 9:
+                basisr.downstairs(shape_height)
+
             # display
-            if 0 <= shape_code <= 4:  # update pins geometry only if value of l is valid
-                for p in basisr.pins.flatten():
-                    vis.update_geometry(p)
+            for p in basisr.pins.flatten():
+                vis.update_geometry(p)
             queue_.task_done()
         except queue.Empty:
             pass
