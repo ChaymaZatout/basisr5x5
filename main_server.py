@@ -30,7 +30,7 @@ if __name__ == '__main__':
     basisr = BASISR55(size=0.15,  # the base size : size x size
                       pins_per_line=5,  # the number of pins per line (colomn)
                       pins_R=0.020,  # the pins R (R = r*2)
-                      base_height=0.075,  # the base height
+                      base_height=0.025,  # the base height
                       pins_height=0.002
                       )
     vis.add_geometry(basisr.base)
