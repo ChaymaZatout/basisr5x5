@@ -44,9 +44,9 @@ if __name__ == '__main__':
             shape_code, shape_height = queue_.get(False)
             print(shape_code, ' ', shape_height)
             basisr.init_pins()
-            if shape_code == 0:
-                basisr.init_pins()
-            elif shape_code == 1:
+            # if shape_code == 0:
+            #     basisr.init_pins()
+            if shape_code == 1:
                 basisr.unknown_obstacle(shape_height)
             elif shape_code == 2:
                 basisr.chair(shape_height)
