@@ -5,7 +5,7 @@ from queue import Queue
 from threading import Thread
 
 CONFIG_PATH = "server.ini"
-MAX_BUFFER_SIZE = 10
+MAX_BUFFER_SIZE = 64
 
 
 class Server:
@@ -31,7 +31,7 @@ class Server:
                 self.status = False
                 break
             buffer += response
-            if len(response) < MAX_BUFFER_SIZE:
+            if len(response) < MAX_BUFFER_SIZE or response.endswith(b'.'):
                 break
         return buffer
 
@@ -39,7 +39,9 @@ class Server:
         # wait for a connection and accept the first connection attempt
         while True:
             if not self.status:
+                print('listening')
                 self.__listen()
+                print('accepted')
 
             buffer = self.__read_data()
             if len(buffer) == 0:
